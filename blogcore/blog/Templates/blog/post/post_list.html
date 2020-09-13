@@ -1,0 +1,12 @@
+{% extends "blog/base.html"%}
+
+{% block content%}
+<h1> Статьи опубликованные </h1>
+    {% for post in posts %}
+     <h3> {{post.title}} </h3> <br>
+    {%endfor%}
+<h1> Ждут публикации </h1>
+    {% for post_dr in posts_draft %}
+      <h3>{{post_dr.title}} </h3> <br>
+    {%endfor%}
+{% endblock %}
