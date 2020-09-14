@@ -1,12 +1,14 @@
-
-from django.contrib import admin
 from django.urls import path
-from .views import *
+from . import views 
+
 
 app_name = 'blog'
-
 urlpatterns = [
-    path('', post_list),
 
-    # path('post/<int:year>/<int:month>/<int:day>/<<slug:post>/',post_detail,name="post_detail_url"),
-]
+    # path('req', views.post_list1, name='post_list1'),
+    # path('catchpage',views.catchpage, name='catch'),
+    path('', views.PostListView.as_view(), name='post_list'),
+    path('<int:year>/<int:month>/<int:day>/<slug:post>/',
+         views.post_detail,
+         name='post_detail'),
+] 
